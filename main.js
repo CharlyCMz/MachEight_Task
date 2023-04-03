@@ -9,34 +9,33 @@ given value. The function will take as input the list of numbers as well as the 
 const refValue= 12; //Set point where the addition of numbers are correct
 const values=[1,9,5,0,20,-4,12,16,7] //Sample values from the test
 
-function findingPairs(values, refValue) {
-    console.time('function');
-    let i=0; //index to map the list as pivot
-    let j=0; //index to map the list as floating
-    //Im trying to use a for cicle centred on "i" to map each number on the array/list an then
-    //use a do/while which makes the comparison of "i" to it's next "j"
-    for (i; i < values.length; i++) {
-        //using the strategy "error first", this is the edge case for the last digit of the array
-        //it evaluates two conditions, being the last number and the case this number is equal to
-        //the refference value given by the "user".
-        if (i==values.length-1 && values[i]==refValue) {
-            console.log(`${values[i]} it's equal to the addition by itself`);
+//====================================================================================
+
+function bynarySearch(values, refValue) {
+    values.sort((a, b) => a-b); // It sorts the array/list as a requirement
+    //It steps into the extreme sides of the array/list
+    let startPoint = 0;
+    let endPoint = values.length-1;
+    let couples = 0; //counter to validate if there are valid operators or not
+    //Loop looking for the addition of those values when equals to the reference
+    while (startPoint < endPoint) { //loop until the available numbers are not repeated in the search
+        //evaluate that the current values are valid operators
+        if (values[startPoint] + values[endPoint] == refValue) {
+            console.log(`${values[startPoint]} + ${values[endPoint]}`);
+            couples++ //counts the actual valid response
+        }
+        //The it evaluates if it has to move the "startPoint" or the "endPoint" with the sum result
+        if (values[startPoint] + values[endPoint] > refValue) {
+            endPoint--;
         } else {
-            do {
-                //Here is where the "j" index start making pairs with the static "i"
-                if(values[i]+values[j+1]==refValue) {
-                    //Ths conditional makes the console printing when the pair fulfill the
-                    //condition of interest
-                    console.log(`${values[i]} + ${values[j+1]} = ${values[i]+values[j+1]}`);
-                }
-                j++;
-            } while (j<values.length-1); //Stops before last number 'cause it's edge case
-            //Here its relocated the "j" index to start the next for(i) cicle
-            j=i+1;
+            startPoint++
         }
     }
-    console.timeEnd('function');
+    //Manage the case when the loop stops and can't find a valid result
+    if (couples===0) {
+        console.log(`Valid operators were not found`);
+    }
 }
 //Call to execute the function
-findingPairs(values,refValue);
-//=========================================================================================
+bynarySearch(values, refValue);
+//=====================================================================================
