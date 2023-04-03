@@ -12,6 +12,7 @@ const values=[1,9,5,0,20,-4,12,16,7] //Sample values from the test
 //====================================================================================
 
 function bynarySearch(values, refValue) {
+    console.time('BinarySearch')
     values.sort((a, b) => a-b); // It sorts the array/list as a requirement
     //It steps into the extreme sides of the array/list
     let startPoint = 0;
@@ -24,7 +25,7 @@ function bynarySearch(values, refValue) {
             console.log(`${values[startPoint]} + ${values[endPoint]}`);
             couples++ //counts the actual valid response
         }
-        //The it evaluates if it has to move the "startPoint" or the "endPoint" with the sum result
+        //Then, it evaluates if it has to move the "startPoint" or the "endPoint" with the sum result
         if (values[startPoint] + values[endPoint] > refValue) {
             endPoint--;
         } else {
@@ -35,6 +36,7 @@ function bynarySearch(values, refValue) {
     if (couples===0) {
         console.log(`Valid operators were not found`);
     }
+    console.timeEnd('BinarySearch')
 }
 //Call to execute the function
 bynarySearch(values, refValue);
