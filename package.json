@@ -1,0 +1,23 @@
+{
+  "name": "macheight_task",
+  "version": "1.0.0",
+  "description": "Entry lvl test for developer recruitment pipeline.",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CharlyCMz/MachEight_Task.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CharlyCMz/MachEight_Task/issues"
+  },
+  "homepage": "https://github.com/CharlyCMz/MachEight_Task#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
