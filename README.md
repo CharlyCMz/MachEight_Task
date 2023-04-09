@@ -7,7 +7,7 @@ given value. The function will take as input the list of numbers as well as the 
 You can assume that all input values are integers. You can assume that there aren't any repeated values in the list. The algorithm to find the pairs must be faster than O(n^2). All edge cases should be handled appropriately.
 
 ## **How do I solve it?**
-As the efficiency its a limit condition I choos to use a Binary Search structure, which allows the process to map the array/list from two points at the same time, using a validating condition as the addition of the values. Then, if it fulfills the requierment its printed on console and if not the result its compared to the refference value, if its higher, reduce the "high" position and if its lower increase the "low" position.
+As the efficiency its a limit condition I choose to use a Binary Search structure, which allows the process to map the array/list from two points at the same time, using a validating condition as the addition of the values. Then, if it fulfills the requierment its printed on console and if not the result its compared to the refference value, if its higher, reduce the "high" position and if its lower increase the "low" position.
 
 ### **Special Considerations**
 * To use this way of solving the problem, the list will be sorted inside the function.
